@@ -1,0 +1,35 @@
+<div class="input-group mt-2">
+
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" />
+    <label class="custom-file-label">Choose File</label>
+  </div>
+
+  <div class="input-group-append">
+    <button class="btn btn-primary">Upload</button>
+  </div>
+
+</div>
+
+<hr>
+
+<table class="table">
+  <thead class="thead-light">
+    <th class="text-center">S.No</th>
+    <th class="text-center">Document Name</th>
+    <th class="text-center">Size</th>
+    <th class="text-center">Owner</th>
+    <th class="text-center">Delete</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let document of documents; let i = index">
+      <td class="text-center">{{ i+1 }}</td>
+      <td class="text-center">{{ document.name }}</td>
+      <td class="text-center">{{ document.size }}</td>
+      <td class="text-center">{{ document.owner }}</td>
+      <td class="text-center">
+        <button class="btn"><fa-icon [icon]="faTrash"></fa-icon></button>
+      </td>
+    </tr>
+  </tbody>
+</table>
