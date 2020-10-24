@@ -1,0 +1,14 @@
+#or-label{
+    font-size: 0.75rem;
+}
+
+#or-label:before,
+#or-label:after {
+  background-color: lightgrey;
+  content: "";
+  display: inline-block;
+  height: 0.8px;
+  position: relative;
+  vertical-align: middle;
+  width: 42%;
+}
