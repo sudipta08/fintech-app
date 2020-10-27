@@ -6,20 +6,20 @@
     
         <div class="col-6">
             <div class="border">
-                <form class="m-3">                    
+                <form [formGroup]="registrationForm" class="m-3">                    
                     <div class="form-group">
                         <label class="small-text">Name</label>
-                        <input type="text" class="form-control form-control-sm" />
+                        <input type="text" class="form-control form-control-sm" formControlName="username" />
                     </div>
                     <div class="form-group">
                         <label class="small-text">Email ID</label>
-                        <input type="email" class="form-control form-control-sm" />
+                        <input type="email" class="form-control form-control-sm" formControlName="email" />
                     </div>
                     <div class="form-group">
                         <label class="small-text">Password</label>
-                        <input type="password" class="form-control form-control-sm" />
+                        <input type="password" class="form-control form-control-sm" formControlName="password" />
                     </div>
-                    <button class="btn btn-sm btn-success">Register</button>
+                    <button class="btn btn-sm btn-success" (click)="onRegister()">Register</button>
                 </form>
             </div>
         </div>
