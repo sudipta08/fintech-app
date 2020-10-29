@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({
     email: {
@@ -18,6 +19,18 @@ const userSchema = new mongoose.Schema({
         default: Date.now
     }
 });
+
+userSchema.statics.CheckUserCredentials = async function(email, password){
+    const user = await model.findOne({email});
+    if(!user){
+        throw new Error('Invalid credentials');
+    }
+    const hashedPassword = await bcrypt.compare(password, user.password);
+    if(!hashedPassword){
+        throw new Error('Invalid credentials');
+    }
+    return user;
+};
 
 const model = mongoose.model('User', userSchema);
 

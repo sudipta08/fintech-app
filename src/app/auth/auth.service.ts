@@ -19,4 +19,14 @@ export class AuthService {
                 console.log(err);
             });
     }
+
+    //login
+    loginUser(email: string, password: string) {
+        this.httpClient.post(environment.apiUrl + '/user/login', {email, password})
+            .subscribe(() => {
+                this.router.navigate(['']);
+            }, (err) => {
+                console.log(err);
+            });
+    }
 }
